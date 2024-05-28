@@ -182,6 +182,22 @@ MonoBehaviour:
   op: 3
   valorPar: 7
   valordiv: 35
+  nomeAluno: Luva
+  notasAluno:
+  - 8
+  - 9
+  - 5
+  mediaAluno: 0
+  Econsumida: 49
+  codigo: 3
+  triLados:
+  - 5
+  - 3
+  - 4
+  nomePaciente: luva
+  pesoPaciente: 87
+  AlturaPaciente: 1.84
+  IMC: 0
 --- !u!4 &37332851
 Transform:
   m_ObjectHideFlags: 0

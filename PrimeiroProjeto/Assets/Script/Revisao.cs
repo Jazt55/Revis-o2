@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Revisao : MonoBehaviour
 {
-
+    [Header("1")]
     public float[] valoresSoma;
-
+    [Header("2")]
     public float valorQuad;
 
     public int[] valoresMedia;
@@ -38,10 +38,27 @@ public class Revisao : MonoBehaviour
     public int op;
 
     public int valorPar;
-     float verificar;
+    float verificar;
 
     public int valordiv;
-     float verificar2;
+    float verificar2;
+
+    public string nomeAluno;
+    public float[] notasAluno;
+    public float mediaAluno;
+
+    public float Econsumida;
+    public int codigo;
+
+    public float[] triLados;
+
+
+    public string nomePaciente;
+    public float pesoPaciente;
+    public float AlturaPaciente;
+    public float IMC;
+
+    public string di;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +79,11 @@ public class Revisao : MonoBehaviour
         Menu();
         par();
         Div5();
+        TesteAluno();
+        consumoE();
+        Triangulo();
+        paciente();
+        sCase();
     }
 
 
@@ -150,7 +172,7 @@ public class Revisao : MonoBehaviour
 
     }
 
-    
+
     void Menu()
     {
         Debug.Log(opcao[0]);
@@ -180,21 +202,22 @@ public class Revisao : MonoBehaviour
 
                 break;
 
-                default:
+            default:
                 Debug.Log("Opcao nao existe");
                 break;
 
         }
 
     }
-    #endregion
+    
     void par()
     {
-        verificar = valorPar%2;
+        verificar = valorPar % 2;
         if (verificar == 0)
         {
             Debug.Log("O valor é Par");
-        }else
+        }
+        else
         {
             Debug.Log("O valor é Impar");
         }
@@ -202,7 +225,7 @@ public class Revisao : MonoBehaviour
     void Div5()
     {
         verificar2 = valordiv % 5;
-        if (verificar == 0)
+        if (verificar2 == 0)
         {
             Debug.Log("O valor é divisel por 5");
         }
@@ -211,5 +234,107 @@ public class Revisao : MonoBehaviour
             Debug.Log("O valor é indivisivel por 5");
         }
     }
+    void TesteAluno()
+    {
+        mediaAluno = (notasAluno[0] + notasAluno[1] + notasAluno[2]) / 3;
+
+        Debug.Log(mediaAluno);
+        if (mediaAluno >= 6)
+        {
+            Debug.Log(nomeAluno + " Está aprovado");
+        }
+        else if (mediaAluno >= 4)
+        {
+            Debug.Log(nomeAluno + " Está de recuperação");
+        }
+        else
+        {
+            Debug.Log(nomeAluno + " Está reprovado");
+
+        }
+
+    }
+    void consumoE()
+    {
+        switch (codigo)
+        {
+            case 1:
+                Debug.Log("Devera ser Pago: " + Econsumida * 1.3);
+                break;
+            case 2:
+                Debug.Log("Devera ser Pago: " + Econsumida * 2.2);
+                break;
+            case 3:
+                Debug.Log("Devera ser Pago: " + Econsumida * 3.1);
+                break;
+        }
+
+
+    }
+    #endregion
+    void Triangulo()
+    {
+        if (triLados[0] == triLados[1] && triLados[0] == triLados[2])
+        {
+            Debug.Log("O triangulo é equilaterp");
+            
+            
+        }
+        else if (triLados[0] == triLados[1] || triLados[0] == triLados[2] || triLados[1] == triLados[2])
+        {
+            print("O triangulo é iscoceles");
+        }
+        else
+        {
+            print("O triangulo é escaleno");
+        }
+    }
+    void paciente()
+    {
+        IMC = pesoPaciente / (AlturaPaciente * AlturaPaciente);
+        print(IMC);
+        if(IMC <= 20)
+        {
+            print(nomePaciente + " Está abaixo do peso ");
+        }else if(IMC <= 25)
+        {
+            print(nomePaciente + " Está normal");
+        }else if(IMC <= 30)
+        {
+            print(nomePaciente + " Está com excesso de peso");
+        }
+        else if (IMC <= 35)
+        {
+            print(nomePaciente + " Está com obesidade");
+        }
+        else
+        {
+            print(nomePaciente + " Está com obesidade mórbida");
+        }
+
+    }
+    public int quantcomprada;
+    void sCase()
+    {
+        switch (di) 
+        {
+            case "ABCD":
+                print(quantcomprada * 5.3);
+                break;
+            case "XYPK":
+                print(quantcomprada * 6);
+                break;
+            case "KLMP":
+                print(quantcomprada * 3.2);
+                break;
+            case "QRST":
+                print(quantcomprada * 2.5);
+                break;
+        
+
+        }
+
+    }
 
 }
+   
